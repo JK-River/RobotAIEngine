@@ -17,20 +17,21 @@
 对于写成的词典需要在/dict/dict.py中加载上来，供正则模板使用  
 方法如下：  
 方法一：加载不带属性  
-stop_words = WordsDict(  
-    './dict/common/stop_words.csv')  
+>		stop_words = WordsDict(  
+>		    './dict/common/stop_words.csv')  
 
 方法二：加载带属性的字典（字典中用逗号分隔的）  
-animal_name = WordsDict(  
-    './dict/animal/animal.csv',  
-    property_name_list=['arid'],  
-    group_name='animal')  
+>		animal_name = WordsDict(  
+>		    './dict/animal/animal.csv',  
+>		    property_name_list=['arid'],  
+>		    group_name='animal')  
+
 property_name_list参数，指定逗号分隔，依次第n个参数返回时的字段名  
 group_name参数，指定被命中的信息，在字典中返回的key名  
 如：我要看老虎，这句老虎在字典中定义如下：  
-老虎,1  
-被正则命中后取得的返回结果中就会包含如下信息：  
-{'arid': '1', 'animal': '老虎'}  
+>老虎,1  
+>被正则命中后取得的返回结果中就会包含如下信息：  
+>{'arid': '1', 'animal': '老虎'}  
 
 ## 2.正则语义模板 ##
 正则语义模板位于/nlu目录  
@@ -46,24 +47,25 @@ smart目录下是指智能硬件的模块。
 
 ## 3.框架与lib包 ##
 当包含有正则表达式的语义类完成之后，需要把这个类注册到框架中去，方法如下：  
-import nlu.animal as animal  
-from nlu.nlu_framework import Nlu_Framework  
-Nlu_Framework.register(animal.Animal)  
+>		import nlu.animal as animal  
+>		from nlu.nlu_framework import Nlu_Framework  
+>		Nlu_Framework.register(animal.Animal)  
 这样框架就可以用Animal类里的Rule对象所指定的正则变量来处理输入文本了  
 
 使用框架匹配正则模块如下：  
-match_dict_list = Nlu_Framework.match('我想看老虎')  
-print  match_dict_list[0].items()  
-输出如下：  
-[('operation', 'query'), ('service', 'animal'),  
-('parameters', {'arid': '1', 'rule': '5', 'animal': '\xe8\x80\x81\xe8\x99\x8e'})]  
+>		match_dict_list = Nlu_Framework.match('我想看老虎')  
+>		print  match_dict_list[0].items()  
 
-lib包里提供了一些在完成正则语义编写非常常用的函数  
-attach_name函数：对指定正则附加一个名字属性，当命中这个正则时会返回这个属性  
-attach_perperty函数：对指定的正则表达式附加一个属性，当命中此正则时返回这个属性  
-e函数：表示正则里的可出现也可不出现（({})?）  
-o函数：表示正则里的或条件（({a|b})）  
-r函数：表示正则里的重复  
+输出如下：  
+>		[('operation', 'query'), ('service', 'animal'),  
+>		('parameters', {'arid': '1', 'rule': '5', 'animal': '\xe8\x80\x81\xe8\x99\x8e'})]  
+
+lib包里提供了一些在完成正则语义编写常用的函数
+>		attach_name函数：对指定正则附加一个名字属性，当命中这个正则时会返回这个属性  
+>		attach_perperty函数：对指定的正则表达式附加一个属性，当命中此正则时返回这个属性  
+>		e函数：表示正则里的可出现也可不出现（({})?）  
+>		o函数：表示正则里的或条件（({a|b})）  
+>		r函数：表示正则里的重复  
 
 #Docker支持#
 本项目支持在docker容器中运行  
@@ -105,7 +107,7 @@ curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%8
 >		for k, v in match_dict_list[0].items():  
 >			print '{} : {}'.format(k, v)  
 
-* 4.输出结果如下：
+* 4.输出结果如下：  
 >		operation : query  
 >		service : test  
 >		parameters : {'user_name': '\xe5\xb0\x8f\xe6\x98\x8e', 'rule': '1'}  
