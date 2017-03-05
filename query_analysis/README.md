@@ -78,5 +78,5 @@ r函数：表示正则里的重复
 3.curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%81%E8%99%8E&robot_code=0'（测试）  
 
 这就可以直接在本机的8700端口进行测试了，返回结果如下：  
-curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%81%E8%99%8E&robot_code=0'  
+curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%81%E8%99%8E&robot_code=0' (发送文本：我要看老虎)  
 {"msg": "OK", "body": {"operation": "query", "service": "animal", "parameters": {"arid": "1", "rule": "5", "animal":   "\u8001\u864e"}}, "code": 0}  
