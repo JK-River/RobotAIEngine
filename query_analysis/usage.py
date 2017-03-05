@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-  Copyright (c) 2016,掌阅科技
+  Copyright (c) 2016,小忆机器人
   All rights reserved.
 
   摘    要：演示简单使用方法
