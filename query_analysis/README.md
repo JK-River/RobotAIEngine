@@ -84,31 +84,28 @@ curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%8
 {"msg": "OK", "body": {"operation": "query", "service": "animal", "parameters": {"arid": "1", "rule": "5", "animal":   "\u8001\u864e"}}, "code": 0}  
 
 #使用方法#
-* 1.编写用于提取语义的类，如下所示：
-> usage.py
-> class Test(object):
->     # 标识是test领域(这个service字段必须存在，命中本类中正则时，会输出这个字段)
->     service = 'test'
-> 
->     # 表示抓取2个字长度的信息,输出字段为name
->     name = range_tag(2, 'user_name')
-> 
->     # 正则规则：我的名字是小明
->     name_case1 = '我的名字是' + name
-> 
->     # 生成规则对象（附加的参数会在输出结果中被输出，operation代表具体的操作）
->     rule_case1 = Rule(attach_perperty(name_case1, {'operation': 'query', 'rule': 1}))
+* 1.编写用于提取语义的类，如下所示：  
+>		usage.py  
+>		class Test(object):  
+>		     # 标识是test领域(这个service字段必须存在，命中本类中正则时，会输出这个字段)  
+>		     service = 'test'  
+>		     # 表示抓取2个字长度的信息,输出字段为name  
+>		     name = range_tag(2, 'user_name')
+>		     # 正则规则：我的名字是小明
+>		     name_case1 = '我的名字是' + name
+>		     # 生成规则对象（附加的参数会在输出结果中被输出，operation代表具体的操作）
+>		     rule_case1 = Rule(attach_perperty(name_case1, {'operation': 'query', 'rule': 1}))
 
 * 2.把本类注册到NLU框架中  
-> from nlu.nlu_framework import Nlu_Framework  
-> Nlu_Framework.register(Test)  
+>		from nlu.nlu_framework import Nlu_Framework  
+>		Nlu_Framework.register(Test)  
 
 * 3.使用规则来处理输入文本  
-> match_dict_list = Nlu_Framework.match('我的名字是小明')  
-> for k, v in match_dict_list[0].items():  
->    print '{} : {}'.format(k, v)  
+>		match_dict_list = Nlu_Framework.match('我的名字是小明')  
+>		for k, v in match_dict_list[0].items():  
+>			print '{} : {}'.format(k, v)  
 
-输出结果如下：  
-> operation : query  
-> service : test  
-> parameters : {'user_name': '\xe5\xb0\x8f\xe6\x98\x8e', 'rule': '1'}  
+* 4.输出结果如下：
+>		operation : query  
+>		service : test  
+>		parameters : {'user_name': '\xe5\xb0\x8f\xe6\x98\x8e', 'rule': '1'}  
