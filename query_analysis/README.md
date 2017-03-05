@@ -85,7 +85,7 @@ curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%8
 
 #使用方法#
 * 1.编写用于提取语义的类，如下所示：
-> # test_rule.py
+> usage.py
 > class Test(object):
 >     # 标识是test领域(这个service字段必须存在，命中本类中正则时，会输出这个字段)
 >     service = 'test'
@@ -99,9 +99,9 @@ curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%8
 >     # 生成规则对象（附加的参数会在输出结果中被输出，operation代表具体的操作）
 >     rule_case1 = Rule(attach_perperty(name_case1, {'operation': 'query', 'rule': 1}))
 
- * 2.把本类注册到NLU框架中  
+* 2.把本类注册到NLU框架中  
 > from nlu.nlu_framework import Nlu_Framework  
-> Nlu_Framework.register(test_rule.Test)  
+> Nlu_Framework.register(Test)  
 
 * 3.使用规则来处理输入文本  
 > match_dict_list = Nlu_Framework.match('我的名字是小明')  
@@ -112,4 +112,3 @@ curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%8
 > operation : query  
 > service : test  
 > parameters : {'user_name': '\xe5\xb0\x8f\xe6\x98\x8e', 'rule': '1'}  
-
