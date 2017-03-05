@@ -1,5 +1,5 @@
 FROM hub.c.163.com/netease_comb/centos:7
-MAINTAINER netease
+MAINTAINER xiaoyi
 
 # 更新yum源
 RUN yum makecache fast && yum -y update glibc    

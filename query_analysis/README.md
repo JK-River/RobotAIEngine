@@ -65,5 +65,14 @@ e函数：表示正则里的可出现也可不出现（({})?）
 o函数：表示正则里的或条件（({a|b})）
 r函数：表示正则里的重复
 
+##Docker支持
+本项目支持在docker容器中运行
+方法1：
+1.进入本目录
+2.docker build -t query_analysis .
+3.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis
+方法2(直接下载镜象)：
+1.docker pull hub.c.163.com/yufeiok/query_analysis:latest
+2.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis
 
 
