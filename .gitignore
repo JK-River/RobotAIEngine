@@ -4,6 +4,7 @@
 *.swp
 .DS_Store
 .project
+.editorconfig
 *.orig
 .idea/
 *./
