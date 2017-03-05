@@ -34,8 +34,8 @@ group_name参数，指定被命中的信息，在字典中返回的key名
 
 ## 2.正则语义模板 ##
 正则语义模板位于/nlu目录  
-media目录是指用于需播放的信息，如相声，戏曲，动画，故事等，这类播放结构较为类似，故放在  
-同一目录下，使用/nlu/media/common提取公共部分，在各模块内部只完成各自不同的信息即可。  
+media目录是指用于需播放的信息，如相声，戏曲，动画，故事等，这类播放结构较为类似，故放在同一目录下
+使用/nlu/media/common提取公共部分，在各模块内部只完成各自不同的信息即可。  
 smart目录下是指智能硬件的模块。  
 
 在/nlu目录下的其它模块，每个模块均代表1种语义  
@@ -68,17 +68,48 @@ r函数：表示正则里的重复
 #Docker支持#
 本项目支持在docker容器中运行  
 方法1(自制镜象)：  
-1.进入本目录  
-2.docker build -t query_analysis .  
-3.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis  
+* 1.进入本目录  
+* 2.docker build -t query_analysis .  
+* 3.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis  
 
 方法2(直接下载镜象)：  
-1.docker pull hub.c.163.com/yufeiok/query_analysis:latest  
-2.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis  
-3.curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%81%E8%99%8E&robot_code=0'（测试）  
+* 1.docker pull hub.c.163.com/yufeiok/query_analysis:latest  
+* 2.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis  
+* 3.curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%81%E8%99%8E&robot_code=0'（测试）  
 
 这就可以直接在本机的8700端口进行测试了，返回结果如下：  
 curl '127.0.0.1:8700/interpreter/info?speech=%E6%88%91%E8%A6%81%E7%9C%8B%E8%80%81%E8%99%8E&robot_code=0' (发送文本：我要看老虎)  
 
 返回结果：  
 {"msg": "OK", "body": {"operation": "query", "service": "animal", "parameters": {"arid": "1", "rule": "5", "animal":   "\u8001\u864e"}}, "code": 0}  
+
+#使用方法#
+* 1.编写用于提取语义的类，如下所示：
+> # test_rule.py
+> class Test(object):
+>     # 标识是test领域(这个service字段必须存在，命中本类中正则时，会输出这个字段)
+>     service = 'test'
+> 
+>     # 表示抓取2个字长度的信息,输出字段为name
+>     name = range_tag(2, 'user_name')
+> 
+>     # 正则规则：我的名字是小明
+>     name_case1 = '我的名字是' + name
+> 
+>     # 生成规则对象（附加的参数会在输出结果中被输出，operation代表具体的操作）
+>     rule_case1 = Rule(attach_perperty(name_case1, {'operation': 'query', 'rule': 1}))
+
+ * 2.把本类注册到NLU框架中  
+> from nlu.nlu_framework import Nlu_Framework  
+> Nlu_Framework.register(test_rule.Test)  
+
+* 3.使用规则来处理输入文本  
+> match_dict_list = Nlu_Framework.match('我的名字是小明')  
+> for k, v in match_dict_list[0].items():  
+>    print '{} : {}'.format(k, v)  
+
+输出结果如下：  
+> operation : query  
+> service : test  
+> parameters : {'user_name': '\xe5\xb0\x8f\xe6\x98\x8e', 'rule': '1'}  
+
