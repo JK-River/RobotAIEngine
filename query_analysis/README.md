@@ -71,8 +71,10 @@ r函数：表示正则里的重复
 1.进入本目录
 2.docker build -t query_analysis .
 3.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis
+
 方法2(直接下载镜象)：
 1.docker pull hub.c.163.com/yufeiok/query_analysis:latest
 2.docker run --rm --name query_analysis --net=host hub.c.163.com/yufeiok/query_analysis
 
-
+这就可以直接在本机的8700端口进行测试了
+如下：

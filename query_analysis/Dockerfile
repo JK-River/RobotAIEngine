@@ -15,6 +15,7 @@ RUN yum -y install python-devel
 RUN yum -y install make automake
 RUN pip install --upgrade pip
 RUN pip install supervisor
+RUN yum install redis
 RUN yum clean all
 
 RUN mkdir -p /data/www/query_analysis
@@ -27,7 +28,7 @@ RUN pip install PyYAML
 RUN pip install regex
 
 WORKDIR /data/www/query_analysis
-ENTRYPOINT ["supervisord", "-n", "-c", "supervisord.conf"]
+ENTRYPOINT ["supervisord", "-n", "-c", "supervisord_docker.conf"]
 
 
 
