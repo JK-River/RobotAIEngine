@@ -1,0 +1,47 @@
+input: 显示二维码
+output:
+  operation: get
+  parameters: {attribute: barcode, rule: '1'}
+  service: xiaoyi
+---
+input: 机器人二维码
+output:
+  operation: get
+  parameters: {attribute: barcode, rule: '1'}
+  service: xiaoyi
+---
+input: 显示版本号
+output:
+  operation: get
+  parameters: {attribute: version, rule: '2'}
+  service: xiaoyi
+---
+input: 机器人版本号
+output:
+  operation: get
+  parameters: {attribute: version, rule: '2'}
+  service: xiaoyi
+---
+input: 显示绑定状态
+output:
+  operation: get
+  parameters: {attribute: bind, rule: '3'}
+  service: xiaoyi
+---
+input: 机器人绑定状态
+output:
+  operation: get
+  parameters: {attribute: bind, rule: '3'}
+  service: xiaoyi
+---
+input: 显示网络状态
+output:
+  operation: get
+  parameters: {attribute: wifi, rule: '4'}
+  service: xiaoyi
+---
+input: 机器人网络状态
+output:
+  operation: get
+  parameters: {attribute: wifi, rule: '4'}
+  service: xiaoyi

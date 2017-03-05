@@ -1,0 +1,29 @@
+input: 电量剩多少
+output:
+  operation: get
+  parameters: {rule: '1'}
+  service: battery
+---
+input: 还剩多少电量
+output:
+  operation: get
+  parameters: {rule: '1'}
+  service: battery
+---
+input: 告诉我电量
+output:
+  operation: get
+  parameters: {rule: '1'}
+  service: battery
+---
+input: 查电量
+output:
+  operation: get
+  parameters: {rule: '1'}
+  service: battery
+---
+input: 电量
+output:
+  operation: get
+  parameters: {rule: '1'}
+  service: battery

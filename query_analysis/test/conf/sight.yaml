@@ -1,0 +1,47 @@
+input: 雪山
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '1', sight: 雪山}
+  service: sight
+---
+input: 我想看一下雪山
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '2', sight: 雪山}
+  service: sight
+---
+input: 你把雪山显示给我看看
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '3', sight: 雪山}
+  service: sight
+---
+input: 雪山显示出来给我看看
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '3', sight: 雪山}
+  service: sight
+---
+input: 雪山显示一下看看
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '3', sight: 雪山}
+  service: sight
+---
+input: 显示雪山
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '4', sight: 雪山}
+  service: sight
+---
+input: 显示出来雪山看看
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '4', sight: 雪山}
+  service: sight
+---
+input: 雪山是什么样子的
+output:
+  operation: query
+  parameters: {arid: '18', name: 雪山, rule: '5', sight: 雪山}
+  service: sight

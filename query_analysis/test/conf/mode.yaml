@@ -1,0 +1,35 @@
+input: 启动展会模式
+output:
+  operation: enter
+  parameters: {name: show, rule: '1'}
+  service: mode
+---
+input: 展会模式开启
+output:
+  operation: enter
+  parameters: {name: show, rule: '1'}
+  service: mode
+---
+input: 运行模式退出
+output:
+  operation: quit
+  parameters: {rule: '1'}
+  service: mode
+---
+input: 显示当前模式
+output:
+  operation: get
+  parameters: {attribute: name, rule: '2'}
+  service: mode
+---
+input: 现在是哪个运行模式
+output:
+  operation: get
+  parameters: {attribute: name, rule: '2'}
+  service: mode
+---
+input: 现在的运行模式是哪个
+output:
+  operation: get
+  parameters: {attribute: name, rule: '2'}
+  service: mode

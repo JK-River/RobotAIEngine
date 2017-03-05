@@ -1,0 +1,35 @@
+input: 拍照
+output:
+  operation: take
+  parameters: {rule: '1'}
+  service: photo
+---
+input: 照拍
+output:
+  operation: take
+  parameters: {rule: '2'}
+  service: photo
+---
+input: 拍张照
+output:
+  operation: take
+  parameters: {rule: '4'}
+  service: photo
+---
+input: 拍我
+output:
+  operation: take
+  parameters: {rule: '5'}
+  service: photo
+---
+input: 打开相机
+output:
+  operation: take
+  parameters: {rule: '6'}
+  service: photo
+---
+input: 相机打开
+output:
+  operation: take
+  parameters: {rule: '7'}
+  service: photo

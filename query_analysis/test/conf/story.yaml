@@ -1,0 +1,47 @@
+input: 听故事
+output:
+  operation: play
+  parameters: {rule: '1'}
+  service: story
+---
+input: 小红帽我要听
+output:
+  operation: play
+  parameters: {rule: '4', story: 小红帽}
+  service: story
+---
+input: 我能请你给我讲故事
+output:
+  operation: play
+  parameters: {rule: '5'}
+  service: story
+---
+input: 你会讲小红帽的故事吗
+output:
+  operation: play
+  parameters: {rule: '8', story: 小红帽}
+  service: story
+---
+input: 小红帽的故事你会讲吗
+output:
+  operation: play
+  parameters: {rule: '9', story: 小红帽}
+  service: story
+---
+input: 小红帽的故事给我讲吧
+output:
+  operation: play
+  parameters: {rule: '10', story: 小红帽}
+  service: story
+---
+input: 不好听换个故事
+output:
+  operation: play
+  parameters: {rule: '12'}
+  service: story
+---
+input: 那讲个故事吧
+output:
+  operation: play
+  parameters: {rule: '8'}
+  service: story

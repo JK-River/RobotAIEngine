@@ -1,0 +1,35 @@
+input: 跳舞
+output:
+  operation: action
+  parameters: {rule: '1'}
+  service: dance
+---
+input: 跳小苹果
+output:
+  operation: action
+  parameters: {rule: '3'}
+  service: dance
+---
+input: 跳机械舞
+output:
+  operation: action
+  parameters: {rule: '5', type: '1'}
+  service: dance
+---
+input: 机械舞来
+output:
+  operation: action
+  parameters: {rule: '6', type: '1'}
+  service: dance
+---
+input: 看你的舞姿
+output:
+  operation: action
+  parameters: {rule: '7'}
+  service: dance
+---
+input: 舞会不会跳
+output:
+  operation: action
+  parameters: {rule: '8'}
+  service: dance

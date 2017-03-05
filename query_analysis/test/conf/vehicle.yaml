@@ -1,0 +1,41 @@
+input: 消防车是什么样子的
+output:
+  operation: query
+  parameters: {arid: '88', rule: '4', vehicle: 消防车}
+  service: vehicle
+---
+input: 我能请你给我看下自行车
+output:
+  operation: name
+  parameters: {arid: '6', rule: '2', vehicle: 自行车}
+  service: vehicle
+---
+input: 小忆我要自行车
+output:
+  operation: query
+  parameters: {arid: '6', rule: '3', vehicle: 自行车}
+  service: vehicle
+---
+input: 消防车是干什么的
+output:
+  operation: query
+  parameters: {arid: '88', rule: '4', vehicle: 消防车}
+  service: vehicle
+---
+input: 自行车
+output:
+  operation: query
+  parameters: {arid: '6', rule: '5', vehicle: 自行车}
+  service: vehicle
+---
+input: 小忆你有没有自行车
+output:
+  operation: query
+  parameters: {arid: '6', rule: '6', vehicle: 自行车}
+  service: vehicle
+---
+input: 再加一辆自行车
+output:
+  operation: append
+  parameters: {arid: '6', rule: '7', vehicle: 自行车}
+  service: vehicle

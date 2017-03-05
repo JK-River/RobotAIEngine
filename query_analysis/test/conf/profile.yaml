@@ -1,0 +1,71 @@
+input: 我叫什么名字
+output:
+  operation: answer
+  parameters: {name: 什么名字, rule: answerName, subject: user}
+  service: profile
+---
+input: 你知道我叫什么吗
+output:
+  operation: answer
+  parameters: {name: 什么吗, rule: answerName, subject: user}
+  service: profile
+---
+input: 你几岁
+output:
+  operation: answer
+  parameters: {age: 几, rule: answerAge, subject: robot}
+  service: profile
+---
+input: 你知道我是谁吗
+output:
+  operation: answer
+  parameters: {closeReletive: 'no', relationDesc: 谁吗, relationid: '99', rule: answerRelation3,
+    subject: user}
+  service: profile
+---
+input: 我是谁
+output:
+  operation: answer
+  parameters: {closeReletive: 'no', relationDesc: 谁, relationid: '99', rule: answerRelation3,
+    subject: user}
+  service: profile
+---
+input: 我是男是女
+output:
+  operation: answer
+  parameters: {closeReletive: 'no', relationDesc: 男是女, relationid: '99', rule: answerRelation3,
+    subject: user}
+  service: profile
+---
+input: 我叫小忆
+output:
+  operation: answer
+  parameters: {name: 小忆, rule: answerName, subject: user}
+  service: profile
+---
+input: 我十岁
+output:
+  operation: answer
+  parameters: {age: 十, rule: answerAge, subject: user}
+  service: profile
+---
+input: 我是男的
+output:
+  operation: answer
+  parameters: {closeReletive: 'no', relationDesc: 男的, relationid: '99', rule: answerRelation3,
+    subject: user}
+  service: profile
+---
+input: 我是小主人的爸爸
+output:
+  operation: answer
+  parameters: {closeReletive: 'no', relationDesc: 爸爸, relationid: '99', rule: answerRelation3,
+    subject: user}
+  service: profile
+---
+input: 我是小主人的三爷爷
+output:
+  operation: answer
+  parameters: {closeReletive: 'no', relationDesc: 三爷爷, relationid: '99', rule: answerRelation3,
+    subject: user}
+  service: profile

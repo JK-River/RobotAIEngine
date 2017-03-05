@@ -1,0 +1,83 @@
+input: 请你不要播放了
+output:
+  operation: stop
+  parameters: {rule: '1'}
+  service: extend_instruction
+---
+input: 别说了
+output:
+  operation: stop
+  parameters: {rule: '1'}
+  service: extend_instruction
+---
+input: 麻烦你停一下好吗
+output:
+  operation: stop
+  parameters: {rule: '1'}
+  service: extend_instruction
+---
+input: 停
+output:
+  operation: stop
+  parameters: {rule: '1'}
+  service: extend_instruction
+---
+input: 停停停
+output:
+  operation: stop
+  parameters: {rule: '1'}
+  service: extend_instruction
+---
+input: 可以啊
+output:
+  operation: 'yes'
+  parameters: {rule: '2'}
+  service: extend_instruction
+---
+input: 对
+output:
+  operation: 'yes'
+  parameters: {rule: '2'}
+  service: extend_instruction
+---
+input: 绝对正确啊
+output:
+  operation: 'yes'
+  parameters: {rule: '2'}
+  service: extend_instruction
+---
+input: 完全不对
+output:
+  operation: 'no'
+  parameters: {rule: '3'}
+  service: extend_instruction
+---
+input: 不太行
+output:
+  operation: 'no'
+  parameters: {rule: '3'}
+  service: extend_instruction
+---
+input: 不是很对啊
+output:
+  operation: 'no'
+  parameters: {rule: '3'}
+  service: extend_instruction
+---
+input: 不行不行
+output:
+  operation: 'no'
+  parameters: {rule: '3'}
+  service: extend_instruction
+---
+input: 我不告诉你
+output:
+  operation: wonttell
+  parameters: {rule: '4'}
+  service: extend_instruction
+---
+input: 不想告诉你
+output:
+  operation: wonttell
+  parameters: {rule: '4'}
+  service: extend_instruction

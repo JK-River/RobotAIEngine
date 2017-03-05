@@ -1,0 +1,89 @@
+input: 小声点好吗
+output:
+  operation: change
+  parameters: {direction: down, rule: '1'}
+  service: volume
+---
+input: 声音再调大点
+output:
+  operation: change
+  parameters: {direction: up, rule: '2'}
+  service: volume
+---
+input: 请你把声音调到最小可以吗
+output:
+  operation: change
+  parameters: {direction: down, rule: '2', step: toend}
+  service: volume
+---
+input: 把声音调整更大一点
+output:
+  operation: change
+  parameters: {direction: up, rule: '2'}
+  service: volume
+---
+input: 别那么大声
+output:
+  operation: change
+  parameters: {direction: down, rule: '3'}
+  service: volume
+---
+input: 那么大声干嘛
+output:
+  operation: change
+  parameters: {direction: down, rule: '6'}
+  service: volume
+---
+input: 声音这么大干啥
+output:
+  operation: change
+  parameters: {direction: down, rule: '7'}
+  service: volume
+---
+input: 干啥这么大声
+output:
+  operation: change
+  parameters: {direction: down, rule: '4'}
+  service: volume
+---
+input: 声音太大了
+output:
+  operation: change
+  parameters: {direction: up, rule: '2'}
+  service: volume
+---
+input: 你说话力气好小
+output:
+  operation: change
+  parameters: {direction: up, rule: '10'}
+  service: volume
+---
+input: 吵死了
+output:
+  operation: change
+  parameters: {rule: '12'}
+  service: volume
+---
+input: 你没吃饭吗
+output:
+  operation: change
+  parameters: {direction: down, rule: '12'}
+  service: volume
+---
+input: 听不清楚
+output:
+  operation: change
+  parameters: {direction: down, rule: '12'}
+  service: volume
+---
+input: 吵死人
+output:
+  operation: change
+  parameters: {rule: '12'}
+  service: volume
+---
+input: 大点声
+output:
+  operation: change
+  parameters: {direction: up, rule: '1'}
+  service: volume

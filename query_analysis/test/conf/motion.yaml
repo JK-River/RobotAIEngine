@@ -1,0 +1,40 @@
+input: 快向上看
+output:
+  operation: action
+  parameters: {code: lookUp, direction: up, emotion: '12', rule: '1', speed: fast}
+  service: motion
+---
+input: 请将头抬起来
+output:
+  operation: action
+  parameters: {code: lookUp, emotion: '12', rule: '2'}
+  service: motion
+---
+input: 快跑呀
+output:
+  operation: run
+  parameters: {rule: '3', speed: fast}
+  service: motion
+---
+input: 你跳
+output:
+  operation: jump
+  parameters: {rule: '4'}
+  service: motion
+---
+input: 快点向左转
+output:
+  operation: turn
+  parameters: {direction: left, rule: '5', speed: fast}
+  service: motion
+---
+input: 跑快点
+output:
+  operation: run
+  parameters: {rule: '6', speed: fast}
+  service: motion
+---
+input: 站直了
+output:
+  parameters: {code: stand, emotion: '12', rule: '7'}
+  service: motion

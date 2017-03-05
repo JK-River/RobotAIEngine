@@ -1,0 +1,17 @@
+input: 这是什么颜色
+output:
+  operation: get
+  parameters: {attribute: name}
+  service: recognition
+---
+input: 这是什么
+output:
+  operation: get
+  parameters: {attribute: name}
+  service: recognition
+---
+input: 这是什么东西
+output:
+  operation: get
+  parameters: {attribute: name}
+  service: recognition

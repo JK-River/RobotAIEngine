@@ -1,0 +1,41 @@
+input: 老虎
+output:
+  operation: query
+  parameters: {animal: 老虎, arid: '1', rule: '1'}
+  service: animal
+---
+input: 老虎长什么样
+output:
+  operation: query
+  parameters: {animal: 老虎, arid: '1', rule: '2'}
+  service: animal
+---
+input: 我现在想要看虫
+output:
+  operation: query
+  parameters: {rule: '3', type: 虫}
+  service: animal
+---
+input: 我要个大老虎看看
+output:
+  operation: query
+  parameters: {animal: 老虎, arid: '1', rule: '5'}
+  service: animal
+---
+input: 什么是老虎
+output:
+  operation: query
+  parameters: {animal: 老虎, arid: '1', rule: '6'}
+  service: animal
+---
+input: 老虎怎么叫
+output:
+  operation: roar
+  parameters: {animal: 老虎, arid: '1', rule: '7'}
+  service: animal
+---
+input: 再加一只老虎
+output:
+  operation: append
+  parameters: {animal: 老虎, arid: '1', rule: '8', tag: 一只}
+  service: animal

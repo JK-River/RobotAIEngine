@@ -1,0 +1,17 @@
+input: 屏幕再调大点
+output:
+  operation: size
+  parameters: {direction: up, rule: '2'}
+  service: display
+---
+input: 把屏幕调到最小
+output:
+  operation: size
+  parameters: {direction: down, rule: '2', step: toend}
+  service: display
+---
+input: 把屏幕调整更大一点
+output:
+  operation: size
+  parameters: {direction: up, rule: '2'}
+  service: display
