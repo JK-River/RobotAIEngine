@@ -13,15 +13,15 @@ RUN yum -y install gcc
 #RUN yum -y install gcc-c++
 RUN yum -y install python-devel
 RUN yum -y install make automake
-RUN pip install --upgrade pip
-RUN pip install supervisor
-RUN yum install redis
+RUN yum -y install redis
 RUN yum clean all
 
 RUN mkdir -p /data/www/query_analysis
 RUN mkdir -p /data/logs
 ADD . /data/www/query_analysis
 
+RUN pip install --upgrade pip
+RUN pip install supervisor
 RUN pip install tornado
 RUN pip install redis
 RUN pip install PyYAML
