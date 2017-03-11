@@ -82,10 +82,10 @@ Nlu_Framework.register(opera.Opera)
 # for i in input:
 #     print force_utf8_new(i)
 
-print 'start'
-a = time.time()
-for i in range(1000):
-    match_dict_list = Nlu_Framework.match('我想看老虎')
-b = time.time()
-print a - b
-print match_dict_list[0].items()
+# print 'start'
+# a = time.time()
+# for i in range(1000):
+match_dict_list = Nlu_Framework.match('我多少岁')
+# b = time.time()
+# print a - b
+print match_dict_list

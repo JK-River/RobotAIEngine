@@ -10,7 +10,8 @@
 """
 from dict.dict import pronoun, stop_words, any_w, modals
 from nlu.rule import Rule
-from utils.utils import attach_perperty, attach_name, o, e, r, range_tag
+from utils.utils import attach_perperty, attach_name, o, e, r, range_tag, range_not_tag
+
 
 class Profile(object):
     # 标识是profile领域
@@ -120,12 +121,16 @@ class Profile(object):
     master = '(小主人|他|你)'
     slave = '(你|机器人|小忆)'
 
-    real_name = range_tag(6, 'name')
-    real_age = range_tag(2, 'age')
+    real_name = range_tag(3, 'name')
+    real_age = range_not_tag(2, what, 'age')
 
     # 我叫什么名字
-    query_name1 = ti_ch_0_3 + person + ti_ch_0_3 + what + ti_ch_0_3 + name + ti_ch_0_3
+    query_name1 = person + '(叫)' + what + name
     query_name1 = attach_perperty(query_name1, {'attribute': 'name', 'rule': 'queryName1'})
+
+    # 我几岁
+    query_age1 = person + '(今年|现在)?' + what + '岁'
+    query_age1 = attach_perperty(query_age1, {'attribute': 'age', 'rule': 'queryName1'})
 
     # 你知道我的名字吗
     query_name2 = ti_ch_0_3 + slave + ti_ch_0_3 + know + person + ti_ch_0_3 + name + e(stop_words)
@@ -136,16 +141,16 @@ class Profile(object):
     query_name3 = attach_perperty(query_name3, {'attribute': 'name', 'rule': 'queryName3'})
 
     # 你几岁
-    query_age1 = ti_ch_0_3 + slave + ti_ch_0_3 + what + age + e(stop_words)
-    query_age1 = attach_perperty(query_age1, {'rule': 'queryAge1'})
+    query_age2 = ti_ch_0_3 + slave + ti_ch_0_3 + what + age + e(stop_words)
+    query_age2 = attach_perperty(query_age2, {'rule': 'query_age2'})
 
     # 你多大
-    query_age2 = ti_ch_0_3 + person + ti_ch_0_3 + '(多大)' + e('(年龄|年纪)') + e(stop_words)
-    query_age2 = attach_perperty(query_age2, {'rule': 'queryAge2'})
+    query_age3 = ti_ch_0_3 + person + ti_ch_0_3 + '(多大)' + e('(年龄|年纪)') + e(stop_words)
+    query_age3 = attach_perperty(query_age3, {'rule': 'query_age3'})
 
     # 你看我多大了
-    query_age3 = ti_ch_0_3 + slave + know + person + '(多大)' + e('(年龄|年纪)') + e(stop_words)
-    query_age3 = attach_perperty(query_age3, {'rule': 'queryAge3'})
+    query_age4 = ti_ch_0_3 + slave + know + person + '(多大)' + e('(年龄|年纪)') + e(stop_words)
+    query_age4 = attach_perperty(query_age4, {'rule': 'query_age4'})
 
     # 你知道我是谁吗(我是谁)
     query_relation1 = ti_ch_0_3 + e(slave) + e(know) + person + ti_ch_0_3 + '(谁)' + e(stop_words)
@@ -159,8 +164,8 @@ class Profile(object):
     query_gender2 = ti_ch_0_3 + person + ti_ch_0_3 + '(性别|男女|是男是女)' + e(stop_words)
     query_gender2 = attach_perperty(query_gender2, {'attribute': 'gender', 'rule': 'queryGender2'})
 
-    get = o(query_name1, query_name2, query_name3, query_age1, query_age2, query_relation1, query_gender1, query_gender2)
-    rule_get = attach_perperty(get, {'operation': 'get'})
+    get = o(query_name1, query_name2, query_name3, query_age1, query_age2, query_age3, query_age4, query_relation1, query_gender1, query_gender2)
+    rule_get = Rule(attach_perperty(get, {'operation': 'get'}))
 
     # 我叫XX
     answer_name = ti_ch_0_3 + person + ti_ch_0_3 + "(叫)" + real_name
@@ -168,6 +173,7 @@ class Profile(object):
 
     # 我XX岁
     answer_age = ti_ch_0_3 + person + e('(今年|现在)') + real_age + '岁' + e(stop_words)
+    # answer_age = ti_ch_0_3 + person + e('(今年|现在)') + real_age + '岁' + e(stop_words)
     answer_age = attach_perperty(answer_age, {'rule': 'answerAge'})
 
     # 我是男/女的

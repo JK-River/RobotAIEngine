@@ -94,6 +94,20 @@ def range_tag(length, name=None, start=1):
         return '(?P<%s>(.){%s,%s})' % (name, start, length*3)
     return '((.){%s,%s})' % (start, length*3)
 
+
+def range_not_tag(length, tag, name=None, start=1):
+    """
+    返回一个范围字段，此时抓取的信息不能是tag字段
+    :param length:
+    :param tag:
+    :param name:
+    :param start:
+    :return:
+    """
+    if name:
+        return '(?P<%s>(((?!%s).)*){%s,%s})' % (name, tag, start, length*3)
+
+
 def force_utf8(data, force_key=False):
     '''
     数据转换为utf8
