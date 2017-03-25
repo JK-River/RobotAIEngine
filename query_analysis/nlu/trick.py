@@ -21,13 +21,13 @@ class Trick(object):
     can_words = modals.join_all
     adverb = adverb.join_all
     ask = honorific.join_all
-    want = '(要|想要|想|需要)'
+    want = '(要|想|想要|需要)'
 
     # 语义意图，仅支持一种，听
     listen = '(听)(一)?(个)?'
 
     # 语义意图
-    tell = '(讲)(一)?(个)?'
+    tell = '(讲|来)(一)?(个)?'
 
     # 脑筋急转弯
     trick = '(脑筋急转弯|急转弯)'
@@ -52,7 +52,7 @@ class Trick(object):
     rule_1 = Rule(attach_perperty(case_1, {'scene': 'trick', 'operation': 'trick', 'rule': 1}))
 
     # 给我讲个急转弯
-    case_2 = e(robot) + give + e(me) + tell + e(an) + trick + e(stop_words)
+    case_2 = e(robot) + e(give) + e(me) + tell + e(an) + trick + e(stop_words)
     rule_2 = Rule(attach_perperty(case_2, {'scene': 'trick', 'operation': 'trick', 'rule': 2}))
 
     # 再来一个

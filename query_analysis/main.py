@@ -27,25 +27,31 @@ import nlu.vehicle as vehichel
 import nlu.volume as volume
 import nlu.xiaoyi as xiaoyi
 import nlu.media.opera as opera
+from nlu import music
+from nlu import phone
+from nlu import trick
+from nlu import vehicle
 from nlu.nlu_framework import Nlu_Framework
 
-Nlu_Framework.register(animal.Animal)
-Nlu_Framework.register(battery.Battery)
-Nlu_Framework.register(dance.Dance)
-Nlu_Framework.register(display.Display)
-Nlu_Framework.register(entertainment.Entertainment)
-Nlu_Framework.register(photo.Photo)
-Nlu_Framework.register(recognition.Recognition)
-Nlu_Framework.register(xiaoyi.XiaoYi)
-Nlu_Framework.register(story.Story)
-Nlu_Framework.register(volume.Volume)
-Nlu_Framework.register(expand_instruction.ExtendInstruction)
-Nlu_Framework.register(mode.Mode)
-Nlu_Framework.register(motion.Motion)
-Nlu_Framework.register(profile.Profile)
-Nlu_Framework.register(vehichel.Vehicle)
-Nlu_Framework.register(sight.Sight)
-Nlu_Framework.register(opera.Opera)
+# Nlu_Framework.register(animal.Animal)
+# Nlu_Framework.register(battery.Battery)
+# Nlu_Framework.register(dance.Dance)
+# Nlu_Framework.register(display.Display)
+# Nlu_Framework.register(entertainment.Entertainment)
+# Nlu_Framework.register(photo.Photo)
+# Nlu_Framework.register(recognition.Recognition)
+# Nlu_Framework.register(xiaoyi.XiaoYi)
+# Nlu_Framework.register(story.Story)
+# Nlu_Framework.register(expand_instruction.ExtendInstruction)
+# Nlu_Framework.register(volume.Volume)
+# Nlu_Framework.register(mode.Mode)
+# Nlu_Framework.register(motion.Motion)
+# Nlu_Framework.register(profile.Profile)
+# Nlu_Framework.register(vehicle.Vehicle)
+# Nlu_Framework.register(sight.Sight)
+# Nlu_Framework.register(music.Music)
+# Nlu_Framework.register(phone.Phone)
+Nlu_Framework.register(trick.Trick)
 
 # def load_from_file(file_name):
 #     """
@@ -85,7 +91,7 @@ Nlu_Framework.register(opera.Opera)
 # print 'start'
 # a = time.time()
 # for i in range(1000):
-match_dict_list = Nlu_Framework.match('我多少岁')
+match_dict_list = Nlu_Framework.match('来个脑筋急转弯')
 # b = time.time()
 # print a - b
 print match_dict_list
