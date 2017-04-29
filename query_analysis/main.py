@@ -49,9 +49,9 @@ from nlu.nlu_framework import Nlu_Framework
 # Nlu_Framework.register(profile.Profile)
 # Nlu_Framework.register(vehicle.Vehicle)
 # Nlu_Framework.register(sight.Sight)
-# Nlu_Framework.register(music.Music)
+Nlu_Framework.register(music.Music)
 # Nlu_Framework.register(phone.Phone)
-Nlu_Framework.register(trick.Trick)
+# Nlu_Framework.register(trick.Trick)
 
 # def load_from_file(file_name):
 #     """
@@ -91,7 +91,7 @@ Nlu_Framework.register(trick.Trick)
 # print 'start'
 # a = time.time()
 # for i in range(1000):
-match_dict_list = Nlu_Framework.match('来个脑筋急转弯')
+match_dict_list = Nlu_Framework.match('唱首刘德华的歌')
 # b = time.time()
 # print a - b
 print match_dict_list

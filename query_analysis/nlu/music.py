@@ -23,11 +23,12 @@ class Music(object):
     can_words = modals.join_all
     adverb = adverb.join_all
     ask = honorific.join_all
+    give = '(给)'
     want = '(要|想要|想|需要)'
 
     # 语义意图，仅支持一种，播放
     listen = '(听|来)(一)?(首)?'
-    sing = '(唱|播放|播|来|看)(一)?(个|段|首)?'
+    sing = '(唱|播放|播|来|看)'
 
     # 音乐人名
     artist = range_tag(4, 'artist')
@@ -48,18 +49,22 @@ class Music(object):
     again = '(再|又|多)'
 
     # 首
-    an = e('首|一首')
+    an = e('(首|一首)')
 
     # 你唱
     you_sing = robot + sing
 
     # 听音乐
     case_1 = e(me) + e(want) + e(again) + e(adverb) + listen + e(you_sing) \
-             + o(an) + o(music, story_name) + e(stop_words)
+             + o(an) + o(music, music_name) + e(stop_words)
     case_2 = e(me) + e(want) + e(again) + e(adverb) + listen + e(you_sing) \
              + e(artist) + e('的') + music_name
     case_3 = sing + music_name
 
+    # (给我)唱首xxx的歌
+    case_4 = e(give) + e(me) + sing + an + artist + '的歌'
+
     # rule_1 = Rule(attach_perperty(case_1, {'operation': 'play', 'rule': 1}))
     # rule_2 = Rule(attach_perperty(case_2, {'operation': 'play', 'rule': 2}))
     # rule_3 = Rule(attach_perperty(case_3, {'operation': 'play', 'rule': 3}))
+    rule_4 = Rule(attach_perperty(case_4, {'operation': 'play', 'rule': 3}))

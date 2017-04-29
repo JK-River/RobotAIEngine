@@ -30,7 +30,7 @@ class Trick(object):
     tell = '(讲|来)(一)?(个)?'
 
     # 脑筋急转弯
-    trick = '(脑筋急转弯|急转弯)'
+    trick = '(脑筋急转弯|急转弯|脑经急转弯)'
 
     # robot
     robot = '(你|机器人|小忆)'
