@@ -43,13 +43,13 @@ from nlu.nlu_framework import Nlu_Framework
 # Nlu_Framework.register(xiaoyi.XiaoYi)
 # Nlu_Framework.register(story.Story)
 # Nlu_Framework.register(expand_instruction.ExtendInstruction)
-# Nlu_Framework.register(volume.Volume)
+Nlu_Framework.register(volume.Volume)
 # Nlu_Framework.register(mode.Mode)
 # Nlu_Framework.register(motion.Motion)
 # Nlu_Framework.register(profile.Profile)
 # Nlu_Framework.register(vehicle.Vehicle)
 # Nlu_Framework.register(sight.Sight)
-Nlu_Framework.register(music.Music)
+# Nlu_Framework.register(music.Music)
 # Nlu_Framework.register(phone.Phone)
 # Nlu_Framework.register(trick.Trick)
 
@@ -91,7 +91,7 @@ Nlu_Framework.register(music.Music)
 # print 'start'
 # a = time.time()
 # for i in range(1000):
-match_dict_list = Nlu_Framework.match('唱首刘德华的歌')
+match_dict_list = Nlu_Framework.match('小忆你声音太大了')
 # b = time.time()
 # print a - b
 print match_dict_list

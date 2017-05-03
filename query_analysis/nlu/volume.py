@@ -33,7 +33,7 @@ class Volume(object):
 
     prefix = o(pronoun, prep, modals, degree, honorific, interj, prefix_unsual)
     postfix = o(auxiliary, prep, pronoun)
-    infix = o(prep, pronoun, degree)
+    infix = o(prep, pronoun)
 
     prefix_0_5 = r(prefix, 0, 5)
     postfix_0_3 = r(postfix, 0, 3)
@@ -50,7 +50,6 @@ class Volume(object):
     # $change = (调 | 调整 | 调节 | 调动 | 调理 | 调弄 | 改变 | 转变 | 弄 | 搞 | 放 | 变 | 整);
     change = '(调|调整|调节|调动|调理|调弄|改变|转变|弄|搞|放|变|整)'
 
-
     # 方向
     # $up{direction%up} = (大 | 高 | 强 | 重 | 响 | 响亮)[$numeral_words] [$quantifier_words];
     up = '(大|高|强|重|响|响亮)' + e(numeral) + e(quantifier)
@@ -63,7 +62,6 @@ class Volume(object):
     # $maximum{direction%up}{step%toend} = [(到 | 至)](最大 | 最高 | 最强 | 最重 | 最响 | 最亮);
     maximum = e('到|至') + '(最大|最高|最强|最重|最响|最亮)'
     maximum = attach_perperty(maximum, {'direction': "up", 'step': "toend"})
-
 
     # $minimum{direction%down}{step%toend} = [(到 | 至)](最小 | 最低 | 最弱 | 最轻);
     minimum = e('到|至') + '(最小|最低|最弱|最轻)'
@@ -133,7 +131,6 @@ class Volume(object):
     volume_case5 = prefix_0_5 + why + e(infix) + volume + e(infix) + reverse_direction + postfix_0_3
     rule_case5 = Rule(attach_perperty(volume_case5, {'operation': 'change', 'rule': 5}))
 
-
     # $volume_case6 = $prefix<0-5> $reverse_direction [$infix] $volume [$infix] $why $postfix<0-3>;
     volume_case6 = prefix_0_5 + reverse_direction + e(infix) + volume + e(infix) + why + postfix_0_3
     rule_case6 = Rule(attach_perperty(volume_case6, {'operation': 'change', 'rule': 6}))
@@ -153,11 +150,9 @@ class Volume(object):
     # 表达方式10-11：声音太大了；你说话力气好小；
     # $too_much = (太 | 过 | 过于 | 好);
     too_much = '(太|过于|过|好)'
-    # $volume_case10 = $prefix<0-5> $volume $too_much $reverse_direction $postfix<0-3>;
     volume_case10 = prefix_0_5 + volume + too_much + reverse_direction + postfix_0_3
     rule_case10 = Rule(attach_perperty(volume_case10, {'operation': 'change', 'rule': 10}))
 
-    # $volume_case11 = $prefix<0-5> $too_much $reverse_direction $volume $postfix<0-3>;
     volume_case11 = prefix_0_5 + too_much + reverse_direction + volume + postfix_0_3
     rule_case11 = Rule(attach_perperty(volume_case11, {'operation': 'change', 'rule': 11}))
 
