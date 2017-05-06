@@ -8,6 +8,7 @@
   创 建 者：余菲
   创建日期：16/6/4
 """
+import re
 import time
 
 import nlu.animal as animal
@@ -27,10 +28,12 @@ import nlu.vehicle as vehichel
 import nlu.volume as volume
 import nlu.xiaoyi as xiaoyi
 import nlu.media.opera as opera
+import nlu.store_location as store_location
 from nlu import music
 from nlu import phone
 from nlu import trick
 from nlu import vehicle
+
 from nlu.nlu_framework import Nlu_Framework
 
 # Nlu_Framework.register(animal.Animal)
@@ -43,7 +46,7 @@ from nlu.nlu_framework import Nlu_Framework
 # Nlu_Framework.register(xiaoyi.XiaoYi)
 # Nlu_Framework.register(story.Story)
 # Nlu_Framework.register(expand_instruction.ExtendInstruction)
-Nlu_Framework.register(volume.Volume)
+# Nlu_Framework.register(volume.Volume)
 # Nlu_Framework.register(mode.Mode)
 # Nlu_Framework.register(motion.Motion)
 # Nlu_Framework.register(profile.Profile)
@@ -52,6 +55,7 @@ Nlu_Framework.register(volume.Volume)
 # Nlu_Framework.register(music.Music)
 # Nlu_Framework.register(phone.Phone)
 # Nlu_Framework.register(trick.Trick)
+Nlu_Framework.register(store_location.StoreLocation)
 
 # def load_from_file(file_name):
 #     """
@@ -91,7 +95,13 @@ Nlu_Framework.register(volume.Volume)
 # print 'start'
 # a = time.time()
 # for i in range(1000):
-match_dict_list = Nlu_Framework.match('小忆你声音太大了')
+match_dict_list = Nlu_Framework.match('小忆我告诉你手机放在椅子上')
+print match_dict_list[0]['parameters']['object']
 # b = time.time()
 # print a - b
-print match_dict_list
+# print match_dict_list
+
+
+# a = re.match('(小忆我问你)(?P<object>(.)+?)(放在|在)(哪里|什么地方|什么位置)', '小忆我问你手机放在哪里').groups()
+# for i in a:
+#     print i

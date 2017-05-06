@@ -30,6 +30,7 @@ from nlu import trick
 from nlu import vehicle
 from nlu import volume
 from nlu import xiaoyi
+from nlu import store_location
 from nlu.nlu_framework import Nlu_Framework
 from nlu.media import story
 from scene.scene_framework import SceneFramework
@@ -54,6 +55,7 @@ Nlu_Framework.register(sight.Sight)
 Nlu_Framework.register(music.Music)
 Nlu_Framework.register(phone.Phone)
 Nlu_Framework.register(trick.Trick)
+Nlu_Framework.register(store_location.StoreLocation)
 
 class Semantic(object):
     """
@@ -102,35 +104,8 @@ class Semantic(object):
         # 语义信息
         match_info = match_dict_list[0]
 
-        # 注意：如果包含场景信息，则需要在语义阶段修改机器人的场景信息
-        self._update_scene(robot_code, match_info)
         self._update_robot_status(robot_code, match_info['service'])
         return match_info
-
-    def _update_scene(self, robot_code, match_info):
-        """
-        根据语义的信息，来更新scene信息
-        需要考虑场景是否变更，如果发现场景发现了变更，则要清空之前的场景信息
-        :param robot_code: 机器码
-        :param match_info: 语义信息
-        :return:
-        """
-        import logging
-        if 'scene' not in match_info.get('parameters'):
-            return
-
-        old_scene_name = RobotScene.get_scene_name(robot_code)
-        scene_name = match_info['parameters']['scene']
-        if old_scene_name != scene_name:
-            RobotScene.clear_scene_name(robot_code)
-            logging.warn('new %s', scene_name)
-            RobotScene.set_scene_name(robot_code, scene_name)
-
-        # 支持场景转移的子场景信息
-        if 'sub_scene' not in match_info['parameters']:
-            return
-
-        RobotScene.set_scene_kv(robot_code, 'sub_scene', match_info['parameters']['sub_scene'])
 
     def _update_robot_status(self, robot_code, status):
         """

@@ -146,11 +146,11 @@ class Profile(object):
 
     # 你多大
     query_age3 = ti_ch_0_3 + person + ti_ch_0_3 + '(多大)' + e('(年龄|年纪)') + e(stop_words)
-    query_age3 = attach_perperty(query_age3, {'rule': 'query_age3'})
+    query_age3 = attach_perperty(query_age3, {'rule': 'query_age3', 'attribute': 'age'})
 
     # 你看我多大了
     query_age4 = ti_ch_0_3 + slave + know + person + '(多大)' + e('(年龄|年纪)') + e(stop_words)
-    query_age4 = attach_perperty(query_age4, {'rule': 'query_age4'})
+    query_age4 = attach_perperty(query_age4, {'rule': 'query_age4', 'attribute': 'age'})
 
     # 你知道我是谁吗(我是谁)
     query_relation1 = ti_ch_0_3 + e(slave) + e(know) + person + ti_ch_0_3 + '(谁)' + e(stop_words)
