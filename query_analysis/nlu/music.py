@@ -28,7 +28,7 @@ class Music(object):
 
     # 语义意图，仅支持一种，播放
     listen = '(听|来)(一)?(首)?'
-    sing = '(唱|播放|播|来|看)'
+    sing = '(唱|播放|播|来|看|放|听)'
 
     # 音乐人名
     artist = range_tag(4, 'artist')
@@ -49,7 +49,7 @@ class Music(object):
     again = '(再|又|多)'
 
     # 首
-    an = e('(首|一首)')
+    an = e('((一)?(首|个))')
 
     # 你唱
     you_sing = robot + sing
