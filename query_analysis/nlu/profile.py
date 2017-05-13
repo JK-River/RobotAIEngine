@@ -170,28 +170,30 @@ class Profile(object):
     # 我叫XX
     answer_name = ti_ch_0_3 + person + ti_ch_0_3 + "(叫)" + real_name
     answer_name = attach_perperty(answer_name, {'rule': 'answerName'})
+    rule_answer_name = Rule(attach_perperty(answer_name, {'operation': 'answer'}))
 
     # 我XX岁
     answer_age = ti_ch_0_3 + person + e('(今年|现在)') + real_age + '岁' + e(stop_words)
     # answer_age = ti_ch_0_3 + person + e('(今年|现在)') + real_age + '岁' + e(stop_words)
     answer_age = attach_perperty(answer_age, {'rule': 'answerAge'})
+    rule_answer_age = Rule(attach_perperty(answer_age, {'operation': 'answer'}))
 
     # 我是男/女的
     answer_gender = ti_ch_0_3 + person + '(是|就是)' + gender + e(stop_words)
     answer_gender = attach_perperty(answer_gender, {'rule': 'answerGender'})
+    rule_answer_gender = Rule(attach_perperty(answer_gender, {'operation': 'answer'}))
 
     # 我是小主人的xx
     answer_relation_1 = ti_ch_0_3 + person + '(是|就是)' + master + '(的)' + relation + e(stop_words)
     answer_relation_1 = attach_perperty(answer_relation_1, {'rule': 'answerRelation1'})
+    rule_answer_relation_1 = Rule(attach_perperty(answer_relation_1, {'operation': 'answer'}))
 
     # 我是小主人/爸爸
     answer_relation_2 = ti_ch_0_3 + person + '(是|就是)' + relation
     answer_relation_2 = attach_perperty(answer_relation_2, {'rule': 'answerRelation2'})
+    rule_answer_relation_2 = Rule(attach_perperty(answer_relation_2, {'operation': 'answer'}))
 
     # 我是小主人的三爷爷
     answer_relation_3 = ti_ch_0_3 + person + '(就是|是)' + e('你|小忆|机器人|小主人') + e('的') + strange_relation
     answer_relation_3 = attach_perperty(answer_relation_3, {'rule': 'answerRelation3'})
-    rule_strange_relation = Rule(attach_perperty(answer_relation_3, {'operation': 'answer'}))
-
-    answer = o(answer_name, answer_age, answer_gender, answer_relation_1, answer_relation_2)
-    rule_answer = Rule(attach_perperty(answer, {'operation': 'answer'}))
+    rule_strange_relation_3 = Rule(attach_perperty(answer_relation_3, {'operation': 'answer'}))

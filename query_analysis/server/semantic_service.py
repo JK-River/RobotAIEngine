@@ -36,6 +36,7 @@ from nlu.media import story
 from scene.scene_framework import SceneFramework
 from utils.utils import force_utf8_new
 
+Nlu_Framework.register(store_location.StoreLocation)
 Nlu_Framework.register(animal.Animal)
 Nlu_Framework.register(battery.Battery)
 Nlu_Framework.register(dance.Dance)
@@ -55,7 +56,7 @@ Nlu_Framework.register(sight.Sight)
 Nlu_Framework.register(music.Music)
 Nlu_Framework.register(phone.Phone)
 Nlu_Framework.register(trick.Trick)
-Nlu_Framework.register(store_location.StoreLocation)
+
 
 class Semantic(object):
     """
