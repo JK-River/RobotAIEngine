@@ -127,45 +127,52 @@ class Profile(object):
     # 我叫什么名字
     query_name1 = person + '(叫)' + what + name
     query_name1 = attach_perperty(query_name1, {'attribute': 'name', 'rule': 'queryName1'})
+    rule_query_name1 = Rule(attach_perperty(query_name1, {'operation': 'get'}))
 
     # 我几岁
     query_age1 = person + '(今年|现在)?' + what + '岁'
     query_age1 = attach_perperty(query_age1, {'attribute': 'age', 'rule': 'queryName1'})
+    rule_query_age1 = Rule(attach_perperty(query_age1, {'operation': 'get'}))
 
     # 你知道我的名字吗
     query_name2 = ti_ch_0_3 + slave + ti_ch_0_3 + know + person + ti_ch_0_3 + name + e(stop_words)
     query_name2 = attach_perperty(query_name2, {'attribute': 'name', 'rule': 'queryName2'})
+    rule_query_name2 = Rule(attach_perperty(query_name2, {'operation': 'get'}))
 
     # 你知道我叫什么吗
     query_name3 = ti_ch_0_3 + slave + ti_ch_0_3 + know + person + ti_ch_0_3 + '叫' + what_name + e(name) + e(stop_words)
     query_name3 = attach_perperty(query_name3, {'attribute': 'name', 'rule': 'queryName3'})
+    rule_query_name3 = Rule(attach_perperty(query_name3, {'operation': 'get'}))
 
     # 你几岁
     query_age2 = ti_ch_0_3 + slave + ti_ch_0_3 + what + age + e(stop_words)
     query_age2 = attach_perperty(query_age2, {'rule': 'query_age2'})
+    rule_query_age2 = Rule(attach_perperty(query_age2, {'operation': 'get'}))
 
     # 你多大
     query_age3 = ti_ch_0_3 + person + ti_ch_0_3 + '(多大)' + e('(年龄|年纪)') + e(stop_words)
     query_age3 = attach_perperty(query_age3, {'rule': 'query_age3', 'attribute': 'age'})
+    rule_query_age3 = Rule(attach_perperty(query_age3, {'operation': 'get'}))
 
     # 你看我多大了
     query_age4 = ti_ch_0_3 + slave + know + person + '(多大)' + e('(年龄|年纪)') + e(stop_words)
     query_age4 = attach_perperty(query_age4, {'rule': 'query_age4', 'attribute': 'age'})
+    rule_query_age4 = Rule(attach_perperty(query_age4, {'operation': 'get'}))
 
     # 你知道我是谁吗(我是谁)
     query_relation1 = ti_ch_0_3 + e(slave) + e(know) + person + ti_ch_0_3 + '(谁)' + e(stop_words)
     query_relation1 = attach_perperty(query_relation1, {'attribute': 'relation', 'rule': 'queryRelation1'})
+    rule_query_relation1 = Rule(attach_perperty(query_relation1, {'operation': 'get'}))
 
     # 你知道我的性别？
     query_gender1 = ti_ch_0_3 + slave + ti_ch_0_3 + know + person + ti_ch_0_3 + '(性别|男女|是男是女|男的女的)' + e(stop_words)
     query_gender1 = attach_perperty(query_gender1, {'attribute': 'gender', 'rule': 'queryGender1'})
+    rule_query_gender1 = Rule(attach_perperty(query_gender1, {'operation': 'get'}))
 
     # 我是男是女？
     query_gender2 = ti_ch_0_3 + person + ti_ch_0_3 + '(性别|男女|是男是女)' + e(stop_words)
     query_gender2 = attach_perperty(query_gender2, {'attribute': 'gender', 'rule': 'queryGender2'})
-
-    get = o(query_name1, query_name2, query_name3, query_age1, query_age2, query_age3, query_age4, query_relation1, query_gender1, query_gender2)
-    rule_get = Rule(attach_perperty(get, {'operation': 'get'}))
+    rule_query_gender2 = Rule(attach_perperty(query_gender2, {'operation': 'get'}))
 
     # 我叫XX
     answer_name = ti_ch_0_3 + person + ti_ch_0_3 + "(叫)" + real_name
@@ -193,7 +200,7 @@ class Profile(object):
     answer_relation_2 = attach_perperty(answer_relation_2, {'rule': 'answerRelation2'})
     rule_answer_relation_2 = Rule(attach_perperty(answer_relation_2, {'operation': 'answer'}))
 
-    # 我是小主人的三爷爷
-    answer_relation_3 = ti_ch_0_3 + person + '(就是|是)' + e('你|小忆|机器人|小主人') + e('的') + strange_relation
-    answer_relation_3 = attach_perperty(answer_relation_3, {'rule': 'answerRelation3'})
-    rule_strange_relation_3 = Rule(attach_perperty(answer_relation_3, {'operation': 'answer'}))
+    # # 我是小主人的三爷爷
+    # answer_relation_3 = person + '(就是|是)' + o('你|小忆|机器人|小主人') + ('(的)') + strange_relation
+    # answer_relation_3 = attach_perperty(answer_relation_3, {'rule': 'answerRelation3'})
+    # rule_strange_relation_3 = Rule(attach_perperty(answer_relation_3, {'operation': 'answer'}))

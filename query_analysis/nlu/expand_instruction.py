@@ -40,7 +40,7 @@ class ExtendInstruction(object):
     play = '(播放|播|说话|说|唱歌|唱|歌唱|讲故事|讲|听歌|听故事|听|跳舞|跳)'
 
     # 中止特征词
-    do_not = '(不要|不|不想|不准|不想要|别)'
+    do_not = '(不要|不想|不准|不想要|不行|不|别)'
     stop = '(停一停|停一下|停止|暂停|停下|停|打住|闭嘴|安静|打断|shut up|stop)'
     get = '(知道|明白|理解|了解)'
 
@@ -63,7 +63,7 @@ class ExtendInstruction(object):
     yes_sentence = r(yes_case1, 1, 3)
     rule_yes_sentence = Rule(attach_perperty(yes_sentence, {'operation': 'yes', 'rule': 2}))
 
-    # 不是语义解析：完全不对；不太行；不是很对啊；不行不行；
+    # 不是语义解析：完全不对；不行；不是很对啊；不行不行；
     not_str = '(不是|不|没|没有)'
     no_case1 = not_str + yes
     no_case2 = prefix_0_5 + not_str + e(degree) + yes + postfix_0_3

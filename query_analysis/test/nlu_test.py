@@ -17,7 +17,7 @@ from unittest import main
 
 sys.path.append(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))
 
-# os.chdir('..')
+os.chdir('..')
 
 import nlu.animal as animal
 import nlu.media.story as story
@@ -83,6 +83,7 @@ class Rule_Test(unittest.TestCase):
             yaml_info_list = load_from_yaml(file_name)
             for yaml_info in yaml_info_list:
                 match_dict_list = Nlu_Framework.match(force_utf8_new(yaml_info['input']))
+                print yaml_info['input']
                 self.assertDictEqual(force_utf8_new(match_dict_list[0]),
                                      force_utf8_new(yaml_info['output']))
 

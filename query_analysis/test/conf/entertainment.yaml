@@ -52,12 +52,6 @@ output:
   parameters: {rule: '3'}
   service: extend_instruction
 ---
-input: 不太行
-output:
-  operation: 'no'
-  parameters: {rule: '3'}
-  service: extend_instruction
----
 input: 不是很对啊
 output:
   operation: 'no'

@@ -55,16 +55,15 @@ class Music(object):
     you_sing = robot + sing
 
     # 听音乐
-    case_1 = e(me) + e(want) + e(again) + e(adverb) + listen + e(you_sing) \
+    case_1 = me + e(want) + listen + e(you_sing) \
              + o(an) + o(music, music_name) + e(stop_words)
-    case_2 = e(me) + e(want) + e(again) + e(adverb) + listen + e(you_sing) \
-             + e(artist) + e('的') + music_name
+    case_2 = me + e(want) + listen + e(you_sing) + e(artist) + e('的') + o(music, music_name)
     case_3 = sing + music_name
 
     # (给我)唱首xxx的歌
     case_4 = e(give) + e(me) + sing + an + artist + '的歌'
 
-    # rule_1 = Rule(attach_perperty(case_1, {'operation': 'play', 'rule': 1}))
-    # rule_2 = Rule(attach_perperty(case_2, {'operation': 'play', 'rule': 2}))
-    # rule_3 = Rule(attach_perperty(case_3, {'operation': 'play', 'rule': 3}))
-    rule_4 = Rule(attach_perperty(case_4, {'operation': 'play', 'rule': 3}))
+    rule_1 = Rule(attach_perperty(case_1, {'operation': 'play', 'rule': 1}))
+    rule_2 = Rule(attach_perperty(case_2, {'operation': 'play', 'rule': 2}))
+    rule_3 = Rule(attach_perperty(case_3, {'operation': 'play', 'rule': 3}))
+    rule_4 = Rule(attach_perperty(case_4, {'operation': 'play', 'rule': 4}))

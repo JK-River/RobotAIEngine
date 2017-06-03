@@ -49,10 +49,10 @@ from nlu.nlu_framework import Nlu_Framework
 # Nlu_Framework.register(volume.Volume)
 # Nlu_Framework.register(mode.Mode)
 # Nlu_Framework.register(motion.Motion)
-Nlu_Framework.register(profile.Profile)
+# Nlu_Framework.register(profile.Profile)
 # Nlu_Framework.register(vehicle.Vehicle)
 # Nlu_Framework.register(sight.Sight)
-# Nlu_Framework.register(music.Music)
+Nlu_Framework.register(music.Music)
 # Nlu_Framework.register(phone.Phone)
 # Nlu_Framework.register(trick.Trick)
 # Nlu_Framework.register(store_location.StoreLocation)
@@ -95,8 +95,8 @@ Nlu_Framework.register(profile.Profile)
 # print 'start'
 # a = time.time()
 # for i in range(1000):
-match_dict_list = Nlu_Framework.match('小忆我告诉你手机放在椅子上')
-print match_dict_list[0]['parameters']['object']
+match_dict_list = Nlu_Framework.match('我要听刘德华的冰雨')
+print match_dict_list
 # b = time.time()
 # print a - b
 # print match_dict_list

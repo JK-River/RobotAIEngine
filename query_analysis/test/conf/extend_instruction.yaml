@@ -52,7 +52,7 @@ output:
   parameters: {rule: '3'}
   service: extend_instruction
 ---
-input: 不太行
+input: 不行
 output:
   operation: 'no'
   parameters: {rule: '3'}

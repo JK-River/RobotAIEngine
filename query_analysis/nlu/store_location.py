@@ -52,11 +52,9 @@ class StoreLocation(object):
 
     # 设置位置表达方式1：
     set_case1 = set_prefix + object_1_5 + put + set_location_1_5
-    print set_case1
     rule_set_case1 = Rule(attach_perperty(set_case1, {'operation': 'set', 'rule': 1}))
 
     # 查询位置表达方式1：
     query_case1 = query_prefix + object_1_5 + keep + where + e(stop_words)
-    print query_case1
     rule_query_case1 = Rule(attach_perperty(query_case1, {'operation': 'query', 'rule': 2}))
 
